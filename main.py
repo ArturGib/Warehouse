@@ -8,7 +8,8 @@ import time
 import logging
 
 bot = Bot.bot
-
+logging.basicConfig(level=logging.INFO, filename="main_log.log", filemode='w',
+                    format="%(asctime)s %(levelname)s %(message)s")
 
 # Регистрация Пользователя #####
 @bot.message_handler(commands = ['start'])
