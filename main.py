@@ -5,7 +5,7 @@ import messages
 from States import State
 import time
 #from config import Token, Mongo
-
+import logging
 
 bot = Bot.bot
 
@@ -175,9 +175,12 @@ while True:
 	except telebot.apihelper.ApiException as e:
 		bot.stop_polling()
 		time.sleep(5)
+		logging.error("ApiException")
 	except KeyboardInterrupt:
 		print('\n! Received keyboard interrupt\n')
+		logging.error("User stop")
 		break
 	except requests.exceptions.ConnectionError:
 		bot.stop_polling()
 		time.sleep(60)
+		logging.error("Connection Error")
