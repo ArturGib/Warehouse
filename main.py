@@ -8,7 +8,7 @@ import time
 import logging
 
 bot = Bot.bot
-logging.basicConfig(level=logging.INFO, filename="main_log.log", filemode='w',
+logging.basicConfig(level=logging.INFO, filename="main_log.log", filemode='a',
                     format="%(asctime)s %(levelname)s %(message)s")
 
 # Регистрация Пользователя #####
@@ -27,6 +27,7 @@ def take_status(message):
 @bot.callback_query_handler(func=lambda call: messages.get_STATE(user_id=call.message.chat.id) == State.STATE_wait_action)
 def take_action(call):
     messages.take_action(call, bot)
+    logging.info(f"Action by {messages.get_user_name(call.message.chat.id)}")
 
 ################################################################################
 # Редактирование прибора
@@ -172,6 +173,7 @@ while True:
 		bot.polling(none_stop=True, interval=2)
 		# Предполагаю, что бот может мирно завершить работу, поэтому
         # даем выйти из цикла
+		logging.info("In progress")
 		break
 	except telebot.apihelper.ApiException as e:
 		bot.stop_polling()
