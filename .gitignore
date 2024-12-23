@@ -1,4 +1,7 @@
 token.txt
 __pycache__/
 venv/
+logs/
 main_log.log
+myenv/
+*.out
