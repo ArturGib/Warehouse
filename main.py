@@ -187,3 +187,9 @@ while True:
 		bot.stop_polling()
 		time.sleep(60)
 		logging.error("Connection Error")
+	except requests.exceptions.ReadTimeout:
+		bot.stop_polling()
+		time.sleep(60)
+		logging.error("ReadTimeout Error")
+	except:
+		logging.error("Unexpected Error")
