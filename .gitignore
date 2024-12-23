@@ -5,3 +5,4 @@ logs/
 main_log.log
 myenv/
 *.out
+*.png
