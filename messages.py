@@ -14,9 +14,9 @@ tconv = lambda x: time.strftime("(%H:%M:%S) - %d.%m.%Y", time.localtime(x)) #К�
 
 class My_Text:
     T_search = "ПОИСК"
-    T_replace_device = "ВЗЯТЬ/ПЕРЕМЕСТИТЬ устройство"
-    T_add_device = "ВНЕСТИ устройство"
-    T_about_device = "ПРОСМОТР сведений о устройстве"
+    T_replace_device = "ВЗЯТЬ/ПЕРЕМЕСТИТЬ"
+    T_add_device = "НОВОЕ устройство"
+    T_about_device = "СВЕДЕНИЯ о устройстве"
     T_edit_device = "РЕДАКТИРОВАТЬ устройство"
     
     
@@ -72,8 +72,8 @@ def waiting(user_id, bot, message_id):
     if result == 'user':
         keyboard = types.InlineKeyboardMarkup()
         callback_search = types.InlineKeyboardButton(text="ПОИСК", callback_data="1")
-        callback_take_device = types.InlineKeyboardButton(text="ВЗЯТЬ/ПЕРЕМЕСТИТЬ устройство", callback_data="2")
-        callback_view = types.InlineKeyboardButton(text="ПРОСМОТР сведений о устройстве", callback_data="4")
+        callback_take_device = types.InlineKeyboardButton(text="ВЗЯТЬ/ПЕРЕМЕСТИТЬ", callback_data="2")
+        callback_view = types.InlineKeyboardButton(text="СВЕДЕНИЯ о устройстве", callback_data="4")
         keyboard.add(callback_search)
         keyboard.add(callback_take_device)
         keyboard.add(callback_view)
